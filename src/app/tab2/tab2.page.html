@@ -1,17 +1,25 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Resultado</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Resultado</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card *ngIf="cepService.resultadoInput">
+    <ion-card-header>
+      <ion-card-title>
+        CEP {{cepService.resultadoInput.cep}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Logradouro: {{cepService.resultadoInput.logradouro}}</p>
+      <p>Bairro: {{cepService.resultadoInput.bairro}}</p>
+      <p>Cidade: {{cepService.resultadoInput.localidade}}</p>
+      <p>UF: {{cepService.resultadoInput.uf}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

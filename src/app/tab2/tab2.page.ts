@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-
+import { CepService } from '../services/cep';
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
-  standalone: false,
+selector: 'app-tab2',
+templateUrl: 'tab2.page.html',
+standalone: false,
 })
 export class Tab2Page {
-
-  constructor() {}
-
+constructor(public cepService: CepService) {}
 }

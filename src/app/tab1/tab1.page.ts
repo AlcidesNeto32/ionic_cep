@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, resource } from '@angular/core';
+import { CepService } from '../services/cep';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -7,7 +7,13 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab1Page {
-
-  constructor() {}
-
+  cep: string = '';
+  
+  constructor(public cepService: CepService) {}
+  
+  buscar(){
+    this.cepService.buscarCep(this.cep).subscribe((resultado:any) => {
+      this.cepService.salvarResultadoCep(resultado);
+    })
+  }
 }
