@@ -5,17 +5,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class CepService {
-  inputCep: string ='';
+  inputCep: string = '';
   resultadoInput: any;
-  historicoCep:any[] = [];
+  historicoCep: any[] = [];
 
-  constructor(private http: HttpClient){}
-  buscarCep(cep:string){
-    this.inputCep = cep;
-    return this.http.get(`https://viacep.com.br/ws/${cep}/json/`);
+  constructor(private http: HttpClient) { }
+
+  buscarCep(cep: string) {
+    const cepLimpo = cep.replace(/\D/g, '');
+    return this.http.get<any>(`https://viacep.com.br/ws/${cepLimpo}/json/`);
   }
 
-  salvarResultadoCep(cep:any){
+  salvarResultadoCep(cep: any) {
     this.resultadoInput = cep;
     this.historicoCep.push(cep)
   }
