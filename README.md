@@ -74,6 +74,3 @@ GET https://viacep.com.br/ws/01001000/json/
 
 ---
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
